@@ -257,6 +257,7 @@
           cover: "images/cover-casamento.webp",
           fit: "contain",
           tone: "linear-gradient(140deg,#b98b9b,#4b1027)",
+          ratio: "16/9",
         },
         {
           title: "Cobertura de evento",
@@ -269,6 +270,7 @@
           cover: "images/cover-evento.webp",
           focus: "50% 42%",
           tone: "linear-gradient(140deg,#c9a7b4,#6c203d)",
+          ratio: "9/16",
         },
         {
           title: "Vídeo corporativo",
@@ -281,6 +283,7 @@
           cover: "images/cover-corporativo.webp",
           focus: "55% 50%",
           tone: "linear-gradient(140deg,#b8a2a8,#351020)",
+          ratio: "9/16",
         },
         {
           title: "Produção comercial",
@@ -293,6 +296,7 @@
           cover: "images/cover-comercial.webp",
           focus: "50% 0%",
           tone: "linear-gradient(140deg,#d2b7bf,#7d304c)",
+          ratio: "9/16",
         },
         {
           title: "Storymaker em tempo real",
@@ -305,6 +309,7 @@
           cover: "images/cover-storymaker.webp",
           focus: "50% 35%",
           tone: "linear-gradient(140deg,#a87589,#4b1027)",
+          ratio: "9/16",
         },
         {
           title: "Conteúdo para marcas",
@@ -317,6 +322,7 @@
           cover: "images/cover-marcas.webp",
           focus: "50% 30%",
           tone: "linear-gradient(140deg,#c4a4ae,#552039)",
+          ratio: "9/16",
         },
       ];
 
@@ -472,6 +478,8 @@
       function closeModal() {
         modal.classList.remove("open");
         area.innerHTML = "";
+        const [rw, rh] = (p.ratio || "16/9").split("/").map(Number);
+        area.style.setProperty("--ratio", rw / rh);
         area.style.backgroundImage = "";
         area.style.backgroundPosition = "";
         document.body.style.overflow = "";
