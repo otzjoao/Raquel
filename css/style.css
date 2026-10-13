@@ -1320,3 +1320,29 @@ h2 {
   font-weight: 400;
   font-variation-settings: "opsz" 40;
 }
+
+/* ===== Player: proporção de cada vídeo (campo ratio) ===== */
+.video-area {
+  aspect-ratio: var(--ratio, 1.7778);
+  width: min(100%, calc((100vh - 200px) * var(--ratio, 1.7778)));
+  width: min(100%, calc((100dvh - 200px) * var(--ratio, 1.7778)));
+}
+
+@media (max-width: 760px) {
+  .video-area {
+    flex: 0 0 auto;
+    width: min(100vw, calc((100vh - 190px) * var(--ratio, 1.7778)));
+    width: min(
+      100vw,
+      calc(
+        (100dvh - 190px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) *
+          var(--ratio, 1.7778)
+      )
+    );
+    aspect-ratio: var(--ratio, 1.7778);
+    margin: auto; /* centraliza entre o botão Fechar e a legenda */
+    padding: 0;
+    border-radius: 0;
+    background-color: #000;
+  }
+}
